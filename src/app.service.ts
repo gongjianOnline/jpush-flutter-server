@@ -5,10 +5,10 @@ import { JPushAsync } from "jpush-async";
 export class AppService {
   async getHello() {
     console.log(JPushAsync)
-    var client = JPushAsync.buildClient('appkey', '密钥')
+    var client = JPushAsync.buildClient('93ba8df603b6f530b2310c69', 'ebe7ec76cb62d0119a577ac4')
     client.push().setPlatform('ios', 'android')
-    .setAudience(JPushAsync.ALL)
-    .setNotification('Hi, JPush', JPushAsync.ios('ios alert', 'happy', 5))
+    .setAudience(JPushAsync.alias('jg123'))
+    .setNotification(JPushAsync.android('龚箭向你发送了一条信息', '定点消息推送测试', 1, {'key':'value'}))
     .send()
     .then(function(result) {
         console.log(result)
@@ -23,10 +23,3 @@ export class AppService {
     };
   }
 }
-
-// const jpushFun = (client)=>{
-//   return new Promise((resolve)=>{
-    
-    
-//   })
-// }
